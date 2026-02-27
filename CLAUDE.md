@@ -1,0 +1,1 @@
+- do not write more than 500line of code in a single file, brake into components
