@@ -18,33 +18,22 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header style={{ background: "#fff", borderBottom: "2px solid #0d0d0d" }}>
-      <nav
-        style={{
-          maxWidth: 1180,
-          margin: "0 auto",
-          padding: "0 20px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: 62,
-          position: "relative",
-        }}
-      >
+    <header className="bg-surface border-b-2 border-border-dark">
+      <nav className="max-w-[1180px] mx-auto px-5 flex items-center justify-between h-16 relative">
         {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+        <div className="flex items-center gap-3.5">
+          <Link href="/" className="flex items-center">
             <img
               src="/images/logo.png"
               alt="Swift Logo"
-              style={{ height: 44, display: "flex", alignItems: "center" }}
+              className="h-11 flex items-center"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = "none";
                 if (target.parentElement && !target.parentElement.querySelector("span")) {
                   const span = document.createElement("span");
                   span.innerHTML =
-                    '<span style="font-size:1.35rem;font-weight:700;color:#ff6600">SWIFT</span>';
+                    '<span class="text-xl font-bold text-primary">SWIFT</span>';
                   target.parentElement.appendChild(span);
                 }
               }}
@@ -55,89 +44,41 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="nav-toggle-btn"
-          style={{
-            display: "none",
-            width: 32,
-            height: 28,
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            zIndex: 100,
-          }}
+          className="nav-toggle-btn hidden w-8 h-7 flex-col justify-between items-center bg-transparent border-none cursor-pointer z-[100]"
           aria-label="Toggle menu"
         >
           <span
+            className="w-full h-[3px] bg-text-dark rounded-sm transition-transform duration-300"
             style={{
-              width: "100%",
-              height: 3,
-              backgroundColor: "#222",
-              borderRadius: 3,
-              transition: "0.3s",
-              transform: menuOpen
-                ? "rotate(45deg) translate(5px, 5px)"
-                : "none",
+              transform: menuOpen ? "rotate(45deg) translate(5px, 5px)" : "none",
             }}
           />
           <span
-            style={{
-              width: "100%",
-              height: 3,
-              backgroundColor: "#222",
-              borderRadius: 3,
-              transition: "0.3s",
-              opacity: menuOpen ? 0 : 1,
-            }}
+            className="w-full h-[3px] bg-text-dark rounded-sm transition-opacity duration-300"
+            style={{ opacity: menuOpen ? 0 : 1 }}
           />
           <span
+            className="w-full h-[3px] bg-text-dark rounded-sm transition-transform duration-300"
             style={{
-              width: "100%",
-              height: 3,
-              backgroundColor: "#222",
-              borderRadius: 3,
-              transition: "0.3s",
-              transform: menuOpen
-                ? "rotate(-45deg) translate(5px, -5px)"
-                : "none",
+              transform: menuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none",
             }}
           />
         </button>
 
         {/* Nav links */}
         <ul
-          className={`nav-links ${menuOpen ? "nav-links-open" : ""}`}
-          style={{
-            display: "flex",
-            gap: 48,
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
-          }}
+          className={`nav-links ${menuOpen ? "nav-links-open" : ""} flex gap-12 list-none m-0 p-0`}
         >
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                style={{
-                  color:
-                    pathname === link.href ? "#ff6600" : "#222",
-                  textDecoration: "none",
-                  fontSize: 15,
-                  fontWeight:
-                    pathname === link.href ? "bold" : 400,
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "#ff6600")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color =
-                    pathname === link.href ? "#ff6600" : "#222")
-                }
+                className={`no-underline text-sm transition-colors duration-200 hover:text-primary ${
+                  pathname === link.href
+                    ? "text-primary font-bold"
+                    : "text-text-dark font-normal"
+                }`}
               >
                 {link.label}
               </Link>
@@ -148,25 +89,7 @@ export default function Navbar() {
         {/* CTA */}
         <Link
           href="/learn-more"
-          className="nav-cta"
-          style={{
-            background: "#ff6600",
-            color: "#fff",
-            padding: "8px 18px",
-            borderRadius: 4,
-            textDecoration: "none",
-            fontSize: 15,
-            fontWeight: 500,
-            border: "none",
-            marginLeft: 16,
-            transition: "background 0.2s",
-          }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.background = "#e65000")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.background = "#ff6600")
-          }
+          className="nav-cta bg-primary text-surface py-2 px-4.5 rounded text-sm font-medium border-none ml-4 transition-colors duration-200 hover:bg-primary-dark"
         >
           Learn More
         </Link>

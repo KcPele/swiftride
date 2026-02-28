@@ -1,47 +1,40 @@
 "use client";
 
-import {
-  RocketIcon,
-  UserShieldIcon,
-  MapMarkedAltIcon,
-  WalletIcon,
-  ClockIcon,
-  HandHoldingUsdIcon,
-} from "@/components/icons";
+import { Rocket, ShieldCheck, MapPin, Wallet, Clock, HandCoins } from "lucide-react";
 
 const features = [
   {
-    icon: <RocketIcon size={28} />,
+    icon: <Rocket size={28} />,
     title: "Fast & Reliable",
     description:
       "Smart matching technology connects you to the nearest driver in seconds. No more long waits.",
   },
   {
-    icon: <UserShieldIcon size={28} />,
+    icon: <ShieldCheck size={28} />,
     title: "Safe & Secure",
     description:
       "Every driver is verified. Features like SOS and live location sharing keep you protected 24/7.",
   },
   {
-    icon: <MapMarkedAltIcon size={28} />,
+    icon: <MapPin size={28} />,
     title: "Live Tracking",
     description:
       "Watch your ride in real-time from pickup to drop-off. You are always in control of your journey.",
   },
   {
-    icon: <WalletIcon size={28} />,
+    icon: <Wallet size={28} />,
     title: "Flexible Payments",
     description:
       "Pay with Cash, Card, or your Swift Wallet. We support all methods for your absolute convenience.",
   },
   {
-    icon: <ClockIcon size={28} />,
+    icon: <Clock size={28} />,
     title: "24/7 Availability",
     description:
       "Whether it's an early morning run or a late-night ride, Swift is always awake and ready to move you.",
   },
   {
-    icon: <HandHoldingUsdIcon size={28} />,
+    icon: <HandCoins size={28} />,
     title: "Affordable Rates",
     description:
       "Premium service shouldn't break the bank. Enjoy competitive, transparent pricing with no hidden fees.",
@@ -50,102 +43,32 @@ const features = [
 
 export default function FeaturesGrid() {
   return (
-    <section style={{ padding: "100px 0 80px", background: "#fff", textAlign: "center" }}>
-      <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 20px" }}>
+    <section className="pt-25 pb-20 bg-surface text-center">
+      <div className="max-w-[1180px] mx-auto px-5">
         {/* Header */}
-        <div style={{ marginBottom: 60, maxWidth: 700, marginLeft: "auto", marginRight: "auto" }}>
-          <h2
-            style={{
-              fontSize: "2.2rem",
-              fontWeight: 800,
-              marginBottom: 15,
-              color: "#1a1a1a",
-            }}
-          >
+        <div className="mb-15 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-extrabold mb-4 text-text-heading">
             Why Choose Swift?
           </h2>
-          <p style={{ fontSize: "1.1rem", color: "#666", lineHeight: 1.6 }}>
+          <p className="text-lg text-text-light leading-relaxed">
             Experience the difference with a service designed for your safety, speed, and convenience.
           </p>
         </div>
 
         {/* Grid */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: 30,
-          }}
-        >
+        <div className="flex flex-wrap justify-center gap-7.5">
           {features.map((f) => (
             <div
               key={f.title}
-              style={{
-                background: "#fff",
-                borderRadius: 16,
-                padding: "35px 30px",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
-                border: "1px solid rgba(0,0,0,0.03)",
-                width: "calc(33.333% - 20px)",
-                minWidth: 300,
-                maxWidth: 380,
-                textAlign: "left",
-                transition: "transform 0.3s, box-shadow 0.3s",
-                position: "relative",
-                overflow: "hidden",
-                cursor: "default",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-8px)";
-                e.currentTarget.style.boxShadow = "0 20px 40px rgba(255,102,0,0.15)";
-                e.currentTarget.style.borderColor = "rgba(255,102,0,0.2)";
-                const iconBox = e.currentTarget.querySelector(".why-icon-box") as HTMLElement;
-                if (iconBox) {
-                  iconBox.style.background = "#ff6600";
-                  iconBox.style.color = "#fff";
-                }
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.05)";
-                e.currentTarget.style.borderColor = "rgba(0,0,0,0.03)";
-                const iconBox = e.currentTarget.querySelector(".why-icon-box") as HTMLElement;
-                if (iconBox) {
-                  iconBox.style.background = "#fff5eb";
-                  iconBox.style.color = "#ff6600";
-                }
-              }}
+              className="group bg-surface rounded-2xl py-9 px-7.5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-black/[0.03] w-[calc(33.333%-20px)] min-w-75 max-w-sm text-left relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,102,0,0.15)] hover:border-primary/20"
             >
-              <div
-                className="why-icon-box"
-                style={{
-                  width: 60,
-                  height: 60,
-                  background: "#fff5eb",
-                  borderRadius: 12,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.5rem",
-                  color: "#ff6600",
-                  marginBottom: 25,
-                  transition: "background 0.3s, color 0.3s",
-                }}
-              >
+              <div className="w-15 h-15 bg-primary-light rounded-xl flex items-center justify-center text-primary mb-6 transition-all duration-300 group-hover:bg-primary group-hover:text-surface">
                 {f.icon}
               </div>
-              <h3
-                style={{
-                  fontSize: "1.35rem",
-                  fontWeight: 700,
-                  marginBottom: 12,
-                  color: "#222",
-                }}
-              >
+              <h3 className="text-xl font-bold mb-3 text-text-dark">
                 {f.title}
               </h3>
-              <p style={{ fontSize: "1rem", color: "#555", lineHeight: 1.6 }}>
+              <p className="text-base text-text-medium leading-relaxed">
                 {f.description}
               </p>
             </div>

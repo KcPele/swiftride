@@ -1,0 +1,14 @@
+[    1004ms] [WARNING] Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'. @ :0
+[    1004ms] [WARNING] Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. @ :0
+[    1004ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://www.pexels.com/search/motorcycle/:0
+[    1924ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://www.pexels.com/favicon.ico:0
+[    2901ms] [WARNING] Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'. @ :0
+[    2901ms] [WARNING] Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. @ :0
+[    3711ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://www.pexels.com/favicon.ico:0
+[    6015ms] [ERROR] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/yfkr6/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[    6015ms] [ERROR] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/yfkr6/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[    6015ms] [WARNING] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/yfkr6/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[    6016ms] [WARNING] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/yfkr6/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[    6084ms] [ERROR]  Note that 'script-src' was not explicitly set, so 'default-src' is used as a fallback. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/yfkr6/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[    6684ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/9d51362ccb71dbb7/1772295232469/82ea98d09402dd10d9a46562de148f2c9e243fb19bb028002499afbf7a6703f9/dHROWdvVaaYG6xG:0
+[   10614ms] [WARNING] The resource https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/cmg/1 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/yfkr6/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0

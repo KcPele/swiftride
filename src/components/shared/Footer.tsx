@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PhoneAltIcon, EnvelopeIcon, MapMarkerAltIcon } from "@/components/icons";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const companyLinks = [
   { href: "/about-us", label: "About Us" },
@@ -59,41 +59,18 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        background: "#111",
-        color: "#fff",
-        padding: "80px 0 0",
-        fontSize: "0.95rem",
-      }}
-    >
-      <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 20px" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1.5fr",
-            gap: 40,
-            marginBottom: 60,
-          }}
-        >
+    <footer className="bg-dark text-surface pt-20 text-base">
+      <div className="max-w-[1180px] mx-auto px-5">
+        <div className="footer-grid grid grid-cols-[2fr_1fr_1fr_1.5fr] gap-10 mb-15">
           {/* Brand Column */}
           <div>
-            <div
-              style={{
-                fontSize: "1.8rem",
-                fontWeight: 800,
-                color: "#fff",
-                marginBottom: 20,
-                letterSpacing: 1,
-              }}
-            >
+            <div className="text-3xl font-extrabold text-surface mb-5 tracking-wider">
               SWIFT
             </div>
-            <p style={{ color: "#aaa", lineHeight: 1.6, marginBottom: 20, maxWidth: 300 }}>
-              Your Ride, Reimagined. Fast, safe, and reliable logistics for
-              everyone.
+            <p className="text-text-muted leading-relaxed mb-5 max-w-xs">
+              Your Ride, Reimagined. Fast, safe, and reliable logistics for everyone.
             </p>
-            <div style={{ display: "flex", gap: 15, marginBottom: 25 }}>
+            <div className="flex gap-4 mb-6">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -101,47 +78,23 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={s.label}
-                  style={{
-                    width: 36,
-                    height: 36,
-                    background: "rgba(255,255,255,0.1)",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#fff",
-                    transition: "0.3s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#ff6600";
-                    e.currentTarget.style.transform = "translateY(-3px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.1)";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
+                  className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-surface transition-all duration-300 hover:bg-primary hover:-translate-y-[3px]"
                 >
                   {s.icon}
                 </a>
               ))}
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <span style={{ color: "#bbb", display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ color: "#ff6600", display: "flex" }}>
-                  <PhoneAltIcon size={16} />
-                </span>
+            <div className="flex flex-col gap-2.5">
+              <span className="text-text-faint flex items-center gap-2.5">
+                <span className="text-primary flex"><Phone size={16} /></span>
                 07012100006
               </span>
-              <span style={{ color: "#bbb", display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ color: "#ff6600", display: "flex" }}>
-                  <EnvelopeIcon size={16} />
-                </span>
+              <span className="text-text-faint flex items-center gap-2.5">
+                <span className="text-primary flex"><Mail size={16} /></span>
                 support@swiftpickup.com.ng
               </span>
-              <span style={{ color: "#bbb", display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ color: "#ff6600", display: "flex" }}>
-                  <MapMarkerAltIcon size={16} />
-                </span>
+              <span className="text-text-faint flex items-center gap-2.5">
+                <span className="text-primary flex"><MapPin size={16} /></span>
                 Minna, Niger State
               </span>
             </div>
@@ -149,30 +102,13 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4
-              style={{
-                color: "#fff",
-                fontSize: "1.1rem",
-                fontWeight: 700,
-                marginBottom: 25,
-              }}
-            >
-              Company
-            </h4>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            <h4 className="text-surface text-lg font-bold mb-6">Company</h4>
+            <ul className="list-none p-0 m-0">
               {companyLinks.map((link) => (
-                <li key={link.label} style={{ marginBottom: 12 }}>
+                <li key={link.label} className="mb-3">
                   <Link
                     href={link.href}
-                    style={{ color: "#aaa", transition: "color 0.3s" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#ff6600";
-                      e.currentTarget.style.paddingLeft = "5px";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#aaa";
-                      e.currentTarget.style.paddingLeft = "0";
-                    }}
+                    className="text-text-muted transition-all duration-300 hover:text-primary hover:pl-1"
                   >
                     {link.label}
                   </Link>
@@ -183,30 +119,13 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h4
-              style={{
-                color: "#fff",
-                fontSize: "1.1rem",
-                fontWeight: 700,
-                marginBottom: 25,
-              }}
-            >
-              Support
-            </h4>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            <h4 className="text-surface text-lg font-bold mb-6">Support</h4>
+            <ul className="list-none p-0 m-0">
               {supportLinks.map((link) => (
-                <li key={link.label} style={{ marginBottom: 12 }}>
+                <li key={link.label} className="mb-3">
                   <Link
                     href={link.href}
-                    style={{ color: "#aaa", transition: "color 0.3s" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#ff6600";
-                      e.currentTarget.style.paddingLeft = "5px";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#aaa";
-                      e.currentTarget.style.paddingLeft = "0";
-                    }}
+                    className="text-text-muted transition-all duration-300 hover:text-primary hover:pl-1"
                   >
                     {link.label}
                   </Link>
@@ -217,97 +136,44 @@ export default function Footer() {
 
           {/* Get the App */}
           <div>
-            <h4
-              style={{
-                color: "#fff",
-                fontSize: "1.1rem",
-                fontWeight: 700,
-                marginBottom: 25,
-              }}
-            >
-              Get the App
-            </h4>
-            <p style={{ color: "#aaa", marginBottom: 20 }}>
+            <h4 className="text-surface text-lg font-bold mb-6">Get the App</h4>
+            <p className="text-text-muted mb-5">
               Book rides and track deliveries on the go.
             </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.swiftpickup.ride"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="/images/google-play.png"
-                  alt="Get it on Google Play"
-                  style={{ height: 40, width: "auto", opacity: 0.9, transition: "opacity 0.3s" }}
-                  onMouseEnter={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
-                  onMouseLeave={(e) => ((e.target as HTMLImageElement).style.opacity = "0.9")}
-                />
+            <div className="flex flex-col gap-4">
+              <a href="https://play.google.com/store/apps/details?id=com.swiftpickup.ride" target="_blank" rel="noopener noreferrer">
+                <img src="/images/google-play.png" alt="Get it on Google Play" className="h-10 w-auto opacity-90 transition-opacity duration-300 hover:opacity-100" />
               </a>
-              <a
-                href="https://app.swiftpickup.com.ng/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="/images/app-store.png"
-                  alt="Download on the App Store"
-                  style={{ height: 40, width: "auto", opacity: 0.9, transition: "opacity 0.3s" }}
-                  onMouseEnter={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
-                  onMouseLeave={(e) => ((e.target as HTMLImageElement).style.opacity = "0.9")}
-                />
+              <a href="https://app.swiftpickup.com.ng/" target="_blank" rel="noopener noreferrer">
+                <img src="/images/app-store.png" alt="Download on the App Store" className="h-10 w-auto opacity-90 transition-opacity duration-300 hover:opacity-100" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom */}
-        <div
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.1)",
-            padding: "25px 0",
-            fontSize: "0.9rem",
-            color: "#777",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <div className="footer-bottom border-t border-white/10 py-6 text-sm text-text-lighter flex justify-between items-center">
           <p>&copy; 2025 Swift Pickup and Logistics. All rights reserved.</p>
-          <div style={{ display: "flex", gap: 20 }}>
-            <Link
-              href="/privacy"
-              style={{ color: "#777", transition: "color 0.3s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#ff6600")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#777")}
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/terms-conditions"
-              style={{ color: "#777", transition: "color 0.3s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#ff6600")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#777")}
-            >
-              Terms
-            </Link>
+          <div className="flex gap-5">
+            <Link href="/privacy" className="text-text-lighter transition-colors duration-300 hover:text-primary">Privacy</Link>
+            <Link href="/terms-conditions" className="text-text-lighter transition-colors duration-300 hover:text-primary">Terms</Link>
           </div>
         </div>
       </div>
 
       <style jsx global>{`
         @media (max-width: 992px) {
-          footer > div > div:first-child {
+          .footer-grid {
             grid-template-columns: 1fr 1fr !important;
           }
         }
         @media (max-width: 576px) {
-          footer > div > div:first-child {
+          .footer-grid {
             grid-template-columns: 1fr !important;
             gap: 30px !important;
             text-align: center;
           }
-          footer > div > div:last-child {
+          .footer-bottom {
             flex-direction: column !important;
             gap: 15px !important;
             text-align: center;

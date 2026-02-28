@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CarIcon, UtensilsIcon, BicycleIcon } from "@/components/icons";
+import { Car, Utensils, Bike } from "lucide-react";
 
 const tabs = [
-  { id: "ride", label: "Ride", icon: <CarIcon size={28} /> },
-  { id: "eat", label: "Eat", icon: <UtensilsIcon size={28} /> },
-  { id: "delivery", label: "Delivery", icon: <BicycleIcon size={28} /> },
+  { id: "ride", label: "Ride", icon: <Car size={28} /> },
+  { id: "eat", label: "Eat", icon: <Utensils size={28} /> },
+  { id: "delivery", label: "Delivery", icon: <Bike size={28} /> },
 ];
 
 const tabContent: Record<string, { title: string; desc: string }> = {
@@ -30,212 +30,74 @@ export default function HeroSection() {
   const content = tabContent[activeTab];
 
   return (
-    <section
-      style={{
-        position: "relative",
-        width: "100%",
-        minHeight: "80vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-      }}
-    >
+    <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <img
         src="/images/hero-bg.png"
         alt="Swift Ride Hero Background"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 1,
-          pointerEvents: "none",
-        }}
+        className="absolute top-0 left-0 w-full h-full object-cover z-[1] pointer-events-none"
         onError={(e) => {
           const t = e.target as HTMLImageElement;
           t.style.display = "none";
           if (t.parentElement) {
             t.parentElement.style.background =
-              "linear-gradient(135deg, #111 0%, #1a1a2e 50%, #16213e 100%)";
+              "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-alt) 50%, var(--color-dark-deep) 100%)";
           }
         }}
       />
 
       {/* Content */}
-      <div
-        className="hero-content-wrapper"
-        style={{
-          position: "relative",
-          width: "100%",
-          maxWidth: 1180,
-          margin: "0 auto",
-          padding: "40px 40px",
-          zIndex: 2,
-          display: "flex",
-          justifyContent: "flex-end",
-        }}
-      >
+      <div className=" relative w-full max-w-[1180px] mx-auto px-10 py-10 z-[2] flex md:justify-start justify-center">
         {/* Hero Card */}
-        <div
-          style={{
-            width: 470,
-            maxWidth: "96vw",
-            borderRadius: 18,
-            background: "rgba(255,255,255,0.2)",
-            boxShadow:
-              "0 4px 40px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.08)",
-            overflow: "hidden",
-            border: "1.5px solid #eaeaea",
-            backdropFilter: "blur(5px) saturate(1.4)",
-            paddingBottom: 22,
-          }}
-        >
+        <div className="w-[470px] max-w-[96vw] rounded-2xl bg-white/20 shadow-[0_4px_40px_rgba(0,0,0,0.15),0_2px_8px_rgba(0,0,0,0.08)] overflow-hidden border-2 border-border backdrop-blur-[5px] backdrop-saturate-[1.4] pb-5.5">
           {/* Tabs */}
-          <div
-            style={{
-              display: "flex",
-              width: "100%",
-              borderRadius: "18px 18px 0 0",
-              background: "#fff",
-              overflow: "hidden",
-              borderBottom: "1.5px solid #e0e0e0",
-            }}
-          >
+          <div className="flex w-full rounded-t-2xl bg-surface overflow-hidden border-b-2 border-border-light">
             {tabs.map((tab) => (
               <div
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                style={{
-                  flex: 1,
-                  textAlign: "center",
-                  padding: "14px 0 0",
-                  fontSize: "1.08em",
-                  fontWeight: activeTab === tab.id ? 600 : 500,
-                  color: activeTab === tab.id ? "#ff6600" : "#555",
-                  cursor: "pointer",
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  height: 85,
-                  transition: "color 0.18s",
-                }}
+                className={`flex-1 text-center pt-3.5 text-lg cursor-pointer relative flex flex-col items-center h-21 transition-colors duration-200 ${
+                  activeTab === tab.id
+                    ? "text-primary font-semibold"
+                    : "text-text-medium font-medium"
+                }`}
               >
-                <span
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: 7,
-                  }}
-                >
+                <span className="flex items-center justify-center mb-2">
                   {tab.icon}
                 </span>
                 {tab.label}
                 {activeTab === tab.id && (
-                  <div
-                    style={{
-                      width: "50%",
-                      height: 3,
-                      background: "#ff6600",
-                      borderRadius: 2,
-                      position: "absolute",
-                      left: "25%",
-                      bottom: 0,
-                    }}
-                  />
+                  <div className="w-1/2 h-[3px] bg-primary rounded-sm absolute left-1/4 bottom-0" />
                 )}
               </div>
             ))}
           </div>
 
           {/* Card Content */}
-          <div
-            style={{
-              padding: "22px 28px 8px",
-              textAlign: "center",
-              minHeight: 330,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <h1
-              style={{
-                fontSize: "2.1em",
-                fontWeight: 700,
-                lineHeight: 1.13,
-                margin: "0 0 14px",
-                letterSpacing: -1,
-                color: "#fff",
-                whiteSpace: "pre-line",
-              }}
-            >
-              <span style={{ color: "#ff6600", display: "inline-flex", verticalAlign: "middle", marginRight: 6 }}>
-                <CarIcon size={32} />
+          <div className="px-7 pt-5.5 pb-2 text-center min-h-[330px] text-text-heading flex flex-col justify-center">
+            <h1 className="sm:text-4xl text-text-heading text-2xl font-bold leading-[1.13] mb-3.5 -tracking-[1px] text-surface whitespace-pre-line">
+              <span className="text-primary inline-flex align-middle mr-1.5">
+                <Car size={32} />
               </span>{" "}
               {content.title}
             </h1>
-            <p
-              style={{
-                fontSize: "1.08em",
-                color: "#ddd",
-                margin: "0 0 25px",
-                fontWeight: 400,
-              }}
-            >
+            <p className="text-lg  mb-6 font-normal">
               {content.desc}
             </p>
 
             {/* App store badges */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: 15,
-                marginBottom: 20,
-              }}
-            >
-              <a
-                href="https://play.google.com/store/apps/details?id=com.swiftpickup.ride"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ transition: "transform 0.2s" }}
-              >
-                <img
-                  src="/images/google-play.png"
-                  alt="Get it on Google Play"
-                  style={{ height: 42, width: "auto", display: "block" }}
-                />
+            <div className="flex justify-center gap-4 mb-5">
+              <a href="https://play.google.com/store/apps/details?id=com.swiftpickup.ride" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200">
+                <img src="/images/google-play.png" alt="Get it on Google Play" className="h-10.5 w-auto block" />
               </a>
-              <a
-                href="https://app.swiftpickup.com.ng/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ transition: "transform 0.2s" }}
-              >
-                <img
-                  src="/images/app-store.png"
-                  alt="Download on the App Store"
-                  style={{ height: 42, width: "auto", display: "block" }}
-                />
+              <a href="https://app.swiftpickup.com.ng/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200">
+                <img src="/images/app-store.png" alt="Download on the App Store" className="h-10.5 w-auto block" />
               </a>
             </div>
 
             <Link
               href="/about-us"
-              style={{
-                color: "#fff",
-                fontSize: "1.08em",
-                textDecoration: "underline",
-                fontWeight: 500,
-                display: "inline-block",
-                marginTop: 12,
-              }}
+              className="text-surface text-lg underline font-medium inline-block mt-3"
             >
               Learn more about driving and delivering
             </Link>
@@ -243,13 +105,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <style jsx global>{`
-        @media (max-width: 768px) {
-          .hero-content-wrapper {
-            justify-content: center !important;
-          }
-        }
-      `}</style>
+      
     </section>
   );
 }

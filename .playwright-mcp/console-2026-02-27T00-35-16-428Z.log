@@ -1,0 +1,2 @@
+[     179ms] TypeError: Cannot set properties of null (setting 'onclick')
+    at HTMLDocument.<anonymous> (https://www.swiftpickup.com.ng/src/script.js:101:15)
