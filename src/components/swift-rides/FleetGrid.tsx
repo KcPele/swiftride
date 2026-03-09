@@ -8,9 +8,9 @@ const fleetData = [
   { name: "Peugeot 206 2005", image: "/images/fleet-peugeot-206-2005.png", ownerName: "Tao Feek", status: "Active" },
   { name: "Peugeot 406", image: "/images/fleet-peugeot-406.png", ownerName: "Ahmad Nagya Kudu", status: "Active" },
   { name: "Toyota Corolla 2010", image: "/images/fleet-toyota-corolla-2010.png", ownerName: "Sunday Yohanna", status: "Active" },
-  { name: "Bajaj Boxer 150", image: "/images/motocycle.png", ownerName: "Ibrahim Musa", status: "Active" },
-  { name: "Honda ACE 125", image: "/images/motocycle.png", ownerName: "Aliyu Danjuma", status: "Active" },
-  { name: "TVS Apache 160", image: "/images/motocycle.png", ownerName: "Suleiman Bello", status: "Active" },
+  { name: "Bajaj Boxer 150", image: "/images/motocycle1.png", ownerName: "Ibrahim Musa", status: "Active" },
+  { name: "Honda ACE 125", image: "/images/motocycle2.png", ownerName: "Aliyu Danjuma", status: "Active" },
+  { name: "TVS Apache 160", image: "/images/motocycle3.png", ownerName: "Suleiman Bello", status: "Active" },
 ];
 
 export default function FleetGrid() {

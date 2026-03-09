@@ -29,7 +29,6 @@ interface RentalCar {
   name: string;
   image: string;
   specs: CarSpec[];
-  whatsappText: string;
 }
 
 const rentalCars: RentalCar[] = [
@@ -41,7 +40,6 @@ const rentalCars: RentalCar[] = [
       { icon: "snowflake", label: "AC" },
       { icon: "cogs", label: "Auto" },
     ],
-    whatsappText: "Hi, I'd like to rent the Toyota Camry 2010",
   },
   {
     name: "Honda Civic 2007",
@@ -51,7 +49,6 @@ const rentalCars: RentalCar[] = [
       { icon: "snowflake", label: "AC" },
       { icon: "gas-pump", label: "Eco" },
     ],
-    whatsappText: "Hi, I'd like to rent the Honda Civic 2007",
   },
   {
     name: "Peugeot 206 2005",
@@ -61,7 +58,6 @@ const rentalCars: RentalCar[] = [
       { icon: "bolt", label: "Manual" },
       { icon: "compact-disc", label: "Compact" },
     ],
-    whatsappText: "Hi, I'd like to rent the Peugeot 206 2005",
   },
   {
     name: "Peugeot 406",
@@ -71,7 +67,6 @@ const rentalCars: RentalCar[] = [
       { icon: "snowflake", label: "AC" },
       { icon: "road", label: "Comfort" },
     ],
-    whatsappText: "Hi, I'd like to rent the Peugeot 406",
   },
   {
     name: "Toyota Corolla 2010",
@@ -81,37 +76,33 @@ const rentalCars: RentalCar[] = [
       { icon: "snowflake", label: "AC" },
       { icon: "star", label: "Popular" },
     ],
-    whatsappText: "Hi, I'd like to rent the Toyota Corolla 2010",
   },
   {
     name: "Bajaj Boxer 150",
-    image: "/images/motocycle.png",
+    image: "/images/motocycle1.png",
     specs: [
       { icon: "user", label: "2" },
       { icon: "bolt", label: "Manual" },
       { icon: "gas-pump", label: "Fuel Efficient" },
     ],
-    whatsappText: "Hi, I'd like to rent the Bajaj Boxer 150",
   },
   {
     name: "Honda ACE 125",
-    image: "/images/motocycle.png",
+    image: "/images/motocycle2.png",
     specs: [
       { icon: "user", label: "2" },
       { icon: "bolt", label: "Manual" },
       { icon: "compact-disc", label: "Compact" },
     ],
-    whatsappText: "Hi, I'd like to rent the Honda ACE 125",
   },
   {
     name: "TVS Apache 160",
-    image: "/images/motocycle.png",
+    image: "/images/motocycle3.png",
     specs: [
       { icon: "user", label: "2" },
       { icon: "bolt", label: "Manual" },
       { icon: "star", label: "Sport" },
     ],
-    whatsappText: "Hi, I'd like to rent the TVS Apache 160",
   },
 ];
 
@@ -142,7 +133,7 @@ export default function RentalGrid() {
                   Contact for Price
                 </div>
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(car.whatsappText)}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I'd like to rent the ${car.name}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-accent-whatsapp text-surface p-3 rounded-lg font-semibold text-base no-underline transition-opacity duration-300 mt-auto hover:opacity-90"
